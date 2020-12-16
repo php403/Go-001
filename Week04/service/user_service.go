@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"github.com/jinzhu/gorm"
-	"github.com/longjoy/micro-go-course/section08/user/dao"
-	"github.com/longjoy/micro-go-course/section08/user/redis"
+	"github.com/php403/go-001/week04/dao"
+	"github.com/php403/go-001/week04/redis"
 	"log"
 	"time"
 )

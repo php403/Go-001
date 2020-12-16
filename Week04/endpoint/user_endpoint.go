@@ -3,7 +3,7 @@ package endpoint
 import (
 	"context"
 	"github.com/go-kit/kit/endpoint"
-	"github.com/longjoy/micro-go-course/section08/user/service"
+	"github.com/php403/go-001/week04/service"
 )
 
 
