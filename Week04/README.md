@@ -1,3 +1,3 @@
-暂未完成
+基础太差暂未完成,后面补上
 
-inject InitApp: no provider found for func(), output of injector
+报错 inject InitApp: no provider found for func(), output of injector
