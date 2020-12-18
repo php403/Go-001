@@ -1,3 +1,4 @@
+// +build wireinject
 package redis
 
 import (
@@ -9,7 +10,7 @@ import (
 )
 
 
-var ProviderSet = wire.NewSet(New, NewOptions)
+var ProviderSet = wire.NewSet(NewRedis, NewOptionsRedis)
 
 
 // Options is  configuration of database
@@ -23,11 +24,11 @@ type Options struct {
 var pool *redis.Pool
 var redisLock *redsync.Redsync
 
-func NewOptions() (*Options) {
+func NewOptionsRedis() *Options {
 	return &Options{"139.9.141.27", 3306, "pg719", "pg719@1996", "demo"}
 }
 
-func New(o *Options) error  {
+func NewRedis(o *Options) error  {
 	pool = &redis.Pool{
 		MaxIdle:     20,
 		IdleTimeout: 240 * time.Second,

@@ -17,6 +17,7 @@ var (
 	ErrorBadRequest = errors.New("invalid request parameter")
 )
 
+
 // MakeHttpHandler make http handler use mux
 func MakeHttpHandler(ctx context.Context, endpoints *endpoint.UserEndpoints) http.Handler {
 	r := mux.NewRouter()
