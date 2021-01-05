@@ -48,7 +48,6 @@ func main()  {
 		}
 
 	})
-
 	err := g.Wait()
 	if err != nil {
 		fmt.Println(err)

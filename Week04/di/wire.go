@@ -13,7 +13,6 @@ type WireStruct struct {
 	Redis *redis.Options
 }
 
-
 func InitApp() (*WireStruct,error) {
 	panic(wire.Build(ProviderSet,dao.ProviderSet,redis.ProviderSet,WireStruct{}))
 }
