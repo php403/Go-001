@@ -19,6 +19,31 @@ type WindowsBucket struct {
 	head    int
 	tail    int
 }
+
+func main()  {
+	WindowsBuckets := WindowsBucket{
+		maxSize: 10,
+		Buckets: [10]Bucket{},
+		head: 0,
+		tail: 0,
+	}
+	ticker := time.NewTicker(time.Second * 1)
+	go func(WindowsBuckets WindowsBucket ) {
+		for  {
+			select {
+			case <-ticker.C:
+				success := rand.Intn(1000)
+				failed := rand.Intn(1000)
+				lastTime := time.Now()
+				_ = WindowsBuckets.push(Bucket{success,failed,lastTime})
+				fmt.Println(WindowsBuckets.size())
+			}
+		}
+	}(WindowsBuckets)
+	select {}
+}
+
+
 func (this *WindowsBucket) push(val Bucket) (err error) {
 	if this.isFull() {
 		return errors.New("队列满了")
@@ -49,25 +74,3 @@ func (this *WindowsBucket) isEmpty() bool {
 }
 
 
-func main()  {
-	WindowsBuckets := WindowsBucket{
-		maxSize: 10,
-		head: 0,
-		tail: 0,
-	}
-	ticker := time.NewTicker(time.Second * 1)
-	go func(WindowsBuckets WindowsBucket ) {
-		for  {
-			select {
-				case <-ticker.C:
-					success := rand.Intn(1000)
-					failed := rand.Intn(1000)
-					lastTime := time.Now()
-					_ = WindowsBuckets.push(Bucket{success,failed,lastTime})
-					fmt.Println(WindowsBuckets.size())
-			}
-		}
-	}(WindowsBuckets)
-	select {}
-
-}
