@@ -1,0 +1,12 @@
+version: "3"
+services:
+  goepoll:
+    container_name: goepoll
+    working_dir: /home/pg
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /Users/pg/work/go/pg/epoll:/home/pg
+    ports:
+      - "2001:2001"
